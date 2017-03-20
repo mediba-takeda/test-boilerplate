@@ -1,12 +1,25 @@
 const webpackConfig = require('./webpack.config')
-webpackConfig.devtool = 'inline-source-map'
 delete webpackConfig.entry
 delete webpackConfig.output
 
 module.exports = function(config) {
   config.set({
+    files: [
+      {
+        pattern: 'test/**/*.spec.js'
+      }
+    ],
+    exclude: [
+    ],
+    preprocessors: {
+      'test/**/*': ['webpack']
+    },
+    webpack: webpackConfig,
+    webpackMiddleware: {
+      noInfo: true
+    },
     frameworks: ['mocha', 'sinon'],
-    reporters: ['mocha'],
+    reporters: ['mocha', 'coverage'],
     mochaReporter: {
       colors: {
         success: 'blue',
@@ -21,20 +34,12 @@ module.exports = function(config) {
         error: 'x'
       }
     },
-    files: [
-      {
-        pattern: 'test/**/*.spec.js', watched: false
-      }
-    ],
-    exclude: [
-    ],
-    preprocessors: {
-      'test/**/*': ['webpack']
+    coverageReporter: {
+      type: 'lcov',
+      dir: './app/coverage',
+      subdir: 'report',
+      file : './app/coverage/report/lcov.info'
     },
-    browsers: ['PhantomJS'],
-    webpack: webpackConfig,
-    webpackMiddleware: {
-      noInfo: true
-    }
+    browsers: ['PhantomJS']
   })
 }
