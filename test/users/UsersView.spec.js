@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import UsersView from 'users/UsersView'
+import UsersView from '../../src/js/users/UsersView'
 import assert from 'power-assert'
 
 describe('UsersView のメソッドをテストする', () => {

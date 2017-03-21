@@ -52,3 +52,4 @@ node_modules
 app/**/*.css
 app/**/*.css.map
 dist
+.vscode
