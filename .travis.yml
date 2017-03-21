@@ -11,3 +11,5 @@ before_install:
   - npm install -g yarn
 script:
   - yarn test
+after_success:
+  - cat ./app/coverage/report/lcov.info | ./node_modules/.bin/coveralls
