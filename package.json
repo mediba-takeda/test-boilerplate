@@ -1,9 +1,8 @@
 {
-  "name": "front-boilerplate",
+  "name": "test-boilerplate",
   "version": "1.0.0",
-  "repository": "git@github.com:tkdn/front-boilerplate.git",
-  "author": "tkdn<tkdnation@gmail.com>",
-  "license": "MIT",
+  "repository": "git@github.com:mediba-takeda/test-boilerplate.git",
+  "author": "Satoshi Takeda<takeda@mediba.jp>",
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
