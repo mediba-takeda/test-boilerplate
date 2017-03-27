@@ -1,6 +1,6 @@
 export function UsersItem (dataArray) {
   let string = ''
-  dataArray.map((user, i)=>{
+  dataArray.map((user)=>{
     string += `
       <dl>
         <dt>${user.username}(${user.name})</dt>
