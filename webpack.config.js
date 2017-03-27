@@ -24,6 +24,7 @@ const webpackConfig = {
   module: {
     /**
      * @see https://git.io/vSL8Z
+     * @see https://git.io/vSL8g
      * @desc Criticalっぽいエラーを抑止しているが下記対応でOKとのこと
      */
     exprContextCritical: false,

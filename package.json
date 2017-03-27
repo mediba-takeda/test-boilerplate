@@ -1,9 +1,26 @@
 {
-  "name": "front-boilerplate",
-  "version": "1.0.0",
-  "repository": "git@github.com:tkdn/front-boilerplate.git",
-  "author": "tkdn<tkdnation@gmail.com>",
+  "name": "test-boilerplate",
+  "version": "0.1.0",
+  "repository": "git@github.com:mediba-takeda/test-boilerplate.git",
+  "author": "Satoshi Takeda<takeda@mediba.jp>",
   "license": "MIT",
+  "engineStrict": true,
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "browserslist": [
+    "Android > 2"
+  ],
+  "scripts": {
+    "clean": "rimraf ./app/css ./app/js ./app/coverage",
+    "prestart": "npm run clean",
+    "start": "cross-env NODE_ENV=development gulp",
+    "prebuild": "npm run clean",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "pretest": "npm run clean",
+    "test": "cross-env NODE_ENV=test karma start --single-run",
+    "test:watch": "cross-env NODE_ENV=test karma start"
+  },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
@@ -20,7 +37,6 @@
     "eslint": "^3.16.1",
     "eslint-loader": "^1.6.3",
     "eslint-plugin-import": "^2.2.0",
-    "flow-bin": "^0.40.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-notify": "^3.0.0",
@@ -45,18 +61,7 @@
     "sinon": "^2.1.0",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1",
-    "webpack-dev-server": "^2.4.1",
     "webpack-notifier": "^1.5.0"
-  },
-  "scripts": {
-    "clean": "rimraf ./app/css ./app/js ./app/coverage",
-    "prestart": "npm run clean",
-    "start": "cross-env NODE_ENV=development gulp",
-    "prebuild": "npm run clean",
-    "build": "cross-env NODE_ENV=production gulp build",
-    "pretest": "npm run clean",
-    "test": "cross-env NODE_ENV=test karma start --single-run",
-    "test:watch": "cross-env NODE_ENV=test karma start"
   },
   "dependencies": {
     "jquery": "1.12"

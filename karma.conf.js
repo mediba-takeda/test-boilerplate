@@ -15,9 +15,6 @@ module.exports = function(config) {
       'test/**/*.spec.js': ['webpack']
     },
     webpack: webpackConfig,
-    webpackMiddleware: {
-      noInfo: true
-    },
     frameworks: ['mocha', 'sinon', 'power-assert'],
     reporters: ['mocha', 'coverage'],
     mochaReporter: {
@@ -35,9 +32,6 @@ module.exports = function(config) {
       }
     },
     logLevel: config.LOG_INFO,
-    singleRun: false,
-    autoWatch: true,
-    concurrency: Infinity,
     coverageReporter: {
       type: 'lcov',
       dir: './app/coverage',
