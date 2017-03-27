@@ -2,11 +2,11 @@ const webpackConfig = require('./webpack.config')
 delete webpackConfig.entry
 delete webpackConfig.output
 
-module.exports = function(config) {
+module.exports = (config)=> {
   config.set({
     files: [
       {
-        pattern: 'test/**/*.spec.js'
+        pattern: 'test/**/*.spec.js', watched: false
       }
     ],
     exclude: [
