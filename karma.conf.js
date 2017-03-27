@@ -12,13 +12,13 @@ module.exports = function(config) {
     exclude: [
     ],
     preprocessors: {
-      'test/**/*': ['webpack']
+      'test/**/*.spec.js': ['webpack']
     },
     webpack: webpackConfig,
     webpackMiddleware: {
       noInfo: true
     },
-    frameworks: ['mocha', 'sinon'],
+    frameworks: ['mocha', 'sinon', 'power-assert'],
     reporters: ['mocha', 'coverage'],
     mochaReporter: {
       colors: {

@@ -22,6 +22,11 @@ const webpackConfig = {
     publicPath: __DEV__ ? '/js/': ''
   },
   module: {
+    /**
+     * @see https://git.io/vSL8Z
+     * @desc Criticalっぽいエラーを抑止しているが下記対応でOKとのこと
+     */
+    exprContextCritical: false,
     rules: [
       {
         test: /\.js$/,
