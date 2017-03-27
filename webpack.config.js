@@ -1,9 +1,11 @@
 const webpack = require('webpack')
 const Path = require('path')
 const entries = require('./webpack.entries')
+const WebpackNotifierPlugin = require('webpack-notifier');
 
-const __DEV__ = process.env.NODE_ENV != 'production'
-const __PRD__ = process.env.NODE_ENV === 'production'
+const __DEV__  = process.env.NODE_ENV != 'production'
+const __TEST__ = process.env.NODE_ENV === 'test'
+const __PRD__  = process.env.NODE_ENV === 'production'
 
 const webpackConfig = {
   devtool: __DEV__ ? 'inline-source-map' : false,
@@ -15,7 +17,7 @@ const webpackConfig = {
     ]
   },
   output: {
-    path: Path.join(__dirname + '/dist/js'),
+    path: Path.join(__dirname + '/app/js'),
     filename: '[name].js',
     publicPath: __DEV__ ? '/js/': ''
   },
@@ -24,13 +26,14 @@ const webpackConfig = {
       {
         test: /\.js$/,
         loader: 'babel-loader'
-      },
-      // {
-      //   test: /\.js$/,
-      //   loader: 'eslint-loader',
-      //   enforce: 'pre'
-      // }
-    ],
+      }
+    ].concat(!__TEST__ ? [
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        enforce: 'pre'
+      }
+    ]:[])
   },
   plugins: (()=>{
     if(__PRD__){
@@ -40,6 +43,8 @@ const webpackConfig = {
         }),
         new webpack.optimize.UglifyJsPlugin({minimize: true})
       ]
+    } else {
+      new WebpackNotifierPlugin()
     }
   })()
 }

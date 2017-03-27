@@ -1,8 +1,9 @@
 {
-  "name": "test-boilerplate",
+  "name": "front-boilerplate",
   "version": "1.0.0",
-  "repository": "git@github.com:mediba-takeda/test-boilerplate.git",
-  "author": "Satoshi Takeda<takeda@mediba.jp>",
+  "repository": "git@github.com:tkdn/front-boilerplate.git",
+  "author": "tkdn<tkdnation@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
@@ -15,7 +16,6 @@
     "browser-sync": "^2.18.8",
     "coveralls": "^2.12.0",
     "cross-env": "^3.2.3",
-    "del": "^2.2.2",
     "eslint": "^3.16.1",
     "eslint-loader": "^1.6.3",
     "eslint-plugin-import": "^2.2.0",
@@ -27,29 +27,34 @@
     "gulp-sourcemaps": "^2.4.1",
     "gulp-util": "^3.0.8",
     "karma": "^1.5.0",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.2",
-    "karma-phantomjs-launcher": "^1.0.2",
     "karma-sinon": "^1.0.5",
     "karma-webpack": "^2.0.2",
     "merge-stream": "^1.0.1",
     "mocha": "^3.2.0",
-    "phantomjs": "^2.1.7",
     "power-assert": "^1.4.2",
     "pretty-hrtime": "^1.0.3",
     "require-dir": "^0.3.1",
+    "rimraf": "^2.6.1",
     "run-sequence": "^1.2.2",
-    "sinon": "^1.17.7",
+    "sinon": "^2.1.0",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1",
-    "webpack-dev-server": "^2.4.1"
+    "webpack-dev-server": "^2.4.1",
+    "webpack-notifier": "^1.5.0"
   },
   "scripts": {
+    "clean": "rimraf ./app/css ./app/js ./app/coverage",
+    "prestart": "npm run clean",
     "start": "cross-env NODE_ENV=development gulp",
+    "prebuild": "npm run clean",
     "build": "cross-env NODE_ENV=production gulp build",
-    "pretest": "gulp clean",
-    "test": "cross-env NODE_ENV=test karma start --single-run"
+    "pretest": "npm run clean",
+    "test": "cross-env NODE_ENV=test karma start --single-run",
+    "test:watch": "cross-env NODE_ENV=test karma start"
   },
   "dependencies": {
     "jquery": "1.12"
