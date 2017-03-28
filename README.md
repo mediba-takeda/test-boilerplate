@@ -1,4 +1,4 @@
-# これはテストを書くための鋳型です
+# これはテストを書くための鋳型です [![Build Status](https://travis-ci.org/mediba-takeda/test-boilerplate.svg?branch=master)](https://travis-ci.org/mediba-takeda/test-boilerplate) [![Coverage Status](https://coveralls.io/repos/github/mediba-takeda/test-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/mediba-takeda/test-boilerplate?branch=master)
 
 - テストコードを書くための鋳型であり、正しいテストコードを書くためのツールではありません
 - ツッコミ・改良、自由にどうぞ

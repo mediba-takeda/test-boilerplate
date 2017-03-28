@@ -1,16 +1,17 @@
-sudo: required
 dist: trusty
+sudo: false
 addons:
   apt:
     sources:
       - google-chrome
     packages:
       - google-chrome-stable
-
 language:
   - node_js
 node_js:
   - stable
+git:
+  depth: 1
 cache:
   yarn: true
   directories: node_modules
