@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const Path = require('path')
+const path = require('path')
 const entries = require('./webpack.entries')
 const WebpackNotifierPlugin = require('webpack-notifier');
 
@@ -12,32 +12,29 @@ const webpackConfig = {
   entry: entries,
   resolve: {
     modules: [
-      Path.join(__dirname, "./src/js"),
+      path.join(__dirname, "./src/js"),
       'node_modules'
     ]
   },
   output: {
-    path: Path.join(__dirname + '/app/js'),
+    path: path.join(__dirname + '/app/js'),
     filename: '[name].js',
     publicPath: __DEV__ ? '/js/': ''
   },
   module: {
-    /**
-     * @see https://git.io/vSL8Z
-     * @see https://git.io/vSL8g
-     * @desc Criticalっぽいエラーを抑止しているが下記対応でOKとのこと
-     */
     exprContextCritical: false,
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        exclude: /node_modules/
       }
-    ].concat(!__TEST__ ? [
+    ].concat(!__TEST__ && !__PRD__ ? [
       {
         test: /\.js$/,
         loader: 'eslint-loader',
-        enforce: 'pre'
+        enforce: 'pre',
+        exclude: /node_modules/
       }
     ]:[])
   },
