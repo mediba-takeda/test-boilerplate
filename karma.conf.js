@@ -30,25 +30,12 @@ module.exports = (config)=> {
       subdir: 'report',
       file : './app/coverage/report/lcov.info'
     },
-    browsers: ['Chrome'],
-    customLaunchers: {
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: [
-          '--no-sandbox',
-          '--disable-gpu',
-          '--headless'
-        ]
-      }
-    },
+    browsers: ['ChromeHeadless'],
     captureTimeout: 60000
   })
   if(__WATCH__) {
     config.coverageReporter = {
       type: 'text-summary'
     }
-  }
-  if(process.env.TRAVIS){
-    config.browsers = ['Chrome_travis_ci']
   }
 }

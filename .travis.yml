@@ -15,8 +15,6 @@ git:
 cache:
   yarn: true
   directories: node_modules
-# before_install:
-#   - export CHROME_BIN=google-chrome-stable
 script:
   - yarn test
 after_success:
