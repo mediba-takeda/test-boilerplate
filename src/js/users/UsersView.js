@@ -5,7 +5,7 @@ import { UsersItem } from './UsersComponents'
 class UsersView {
 
   constructor () {
-    this.model = new UsersRequest()
+    this.request = new UsersRequest()
     this.selector = '.root'
   }
 
@@ -14,7 +14,7 @@ class UsersView {
   }
 
   render () {
-    const request = this.model.fetch()
+    const request = this.request.fetch()
     request.done((res)=>{
       this.append( UsersItem(res) )
     })

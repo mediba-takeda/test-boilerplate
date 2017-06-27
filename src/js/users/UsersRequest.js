@@ -12,7 +12,7 @@ export default class UserRequest extends Request {
 
   constructor () {
     super()
-    this.params = $.extend(true, this.setting, {
+    this.params = Object.assign({}, this.setting, {
       url: 'http://jsonplaceholder.typicode.com/users'
     })
   }

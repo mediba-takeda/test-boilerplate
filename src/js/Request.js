@@ -9,10 +9,10 @@ export default class Request {
 
   constructor () {
     this.setting = {
-      url: 'http://jsonplaceholder.typicode.com',
+      url: 'http://someapi',
       method: 'GET'
     }
-    this.params = {}
+    this.params = this.setting
   }
 
   fetch () {
