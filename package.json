@@ -18,7 +18,7 @@
     "build": "cross-env NODE_ENV=production gulp build",
     "pretest": "npm run clean",
     "test": "cross-env NODE_ENV=test karma start --single-run",
-    "test:watch": "cross-env NODE_ENV=test karma start"
+    "test:watch": "cross-env NODE_ENV=test KARMA_WATCH=true karma start"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
