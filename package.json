@@ -4,7 +4,6 @@
   "repository": "git@github.com:mediba-takeda/test-boilerplate.git",
   "author": "Satoshi Takeda<takeda@mediba.jp>",
   "license": "MIT",
-  "engineStrict": true,
   "engines": {
     "node": ">=4.0.0"
   },
@@ -46,6 +45,8 @@
     "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.1.1",
     "karma-coverage": "^1.1.1",
+    "karma-fixture": "^0.2.6",
+    "karma-html2js-preprocessor": "^1.1.0",
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.2",
     "karma-power-assert": "^1.0.0",
@@ -64,8 +65,6 @@
     "webpack-notifier": "^1.5.0"
   },
   "dependencies": {
-    "jquery": "1.12",
-    "karma-fixture": "^0.2.6",
-    "karma-html2js-preprocessor": "^1.1.0"
+    "jquery": "1.12"
   }
 }

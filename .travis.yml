@@ -16,4 +16,4 @@ cache:
 script:
   - yarn test
 after_success:
-  - cat ./app/coverage/report/lcov.info | ./node_modules/.bin/coveralls
+  - cat ./.tmp/coverage/report/lcov.info | ./node_modules/.bin/coveralls

@@ -26,9 +26,9 @@ module.exports = (config)=> {
     reporters: ['mocha', 'coverage'],
     coverageReporter: {
       type: 'lcov',
-      dir: './app/coverage',
+      dir: './.tmp/coverage',
       subdir: 'report',
-      file : './app/coverage/report/lcov.info'
+      file : './.tmp/coverage/report/lcov.info'
     },
     browsers: ['ChromeHeadless'],
     captureTimeout: 60000

@@ -1,13 +1,14 @@
 import $ from 'jquery'
 import UsersView from 'users/UsersView'
-import assert from 'power-assert'
 
-describe('UsersView のメソッドをテストする', () => {
-  it('指定のセレクタにテキストをアペンドすることができる', () => {
-    const string = 'dummy text'
+describe('- UsersView', () => {
+
+  it('UsersView#append - ', () => {
+    const expected = 'dummy text'
     $('body').append('<div class="root" />')
     UsersView.append(string)
-    const appendStr = $('.root').text()
-    assert(string === appendStr)
+    const actual = $('.root').text()
+    assert(expected === actual)
   })
+
 })
