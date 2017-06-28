@@ -13,7 +13,7 @@ describe('- UserRequest', () => {
     server = null
   })
 
-  it('UserRequest#fetcth - Promise を返却してチェーンできる', (done) => {
+  it('UserRequest#fetch - Promise を返却してチェーンできる', (done) => {
     const request = new UserRequest
     server.respondWith(
       'GET',
@@ -29,7 +29,7 @@ describe('- UserRequest', () => {
         assert.deepEqual(res, {status: 1})
         done()
       })
-    server.respond()
+    // server.respond()
   })
 
 })
