@@ -29,7 +29,7 @@ describe('- UserRequest', () => {
         assert.deepEqual(res, {status: 1})
         done()
       })
-    // server.respond()
+    server.respond()
   })
 
 })
