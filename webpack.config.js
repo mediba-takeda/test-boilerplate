@@ -12,7 +12,8 @@ const webpackConfig = {
   entry: entries,
   resolve: {
     modules: [
-      path.join(__dirname, "./src/js"),
+      path.join(__dirname, './src/js'),
+      path.join(__dirname, './test'),
       'node_modules'
     ]
   },
@@ -38,18 +39,18 @@ const webpackConfig = {
       }
     ]:[])
   },
-  plugins: (()=>{
-    if(__PRD__){
-      return [
-        new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        }),
-        new webpack.optimize.UglifyJsPlugin({minimize: true})
-      ]
-    } else {
-      new WebpackNotifierPlugin()
-    }
-  })()
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+    new WebpackNotifierPlugin()
+  ].concat(__TEST__ ? [
+    new webpack.ProvidePlugin({
+      'jQuery': 'jquery',
+      '$': 'jquery'
+    })
+  ] : [])
 }
 
 module.exports = webpackConfig

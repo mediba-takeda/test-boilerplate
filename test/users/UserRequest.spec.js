@@ -1,35 +1,42 @@
-import $ from 'jquery'
 import UserRequest from 'users/UsersRequest'
+import { fakeServer } from 'testUtility/fakeServer'
 
 describe('- UserRequest', () => {
-  let server
+  const success = {
+    response: { status: 1 }
+  }
+  const failure = {
+    status: 404
+  }
 
   beforeEach(() => {
-    server = sinon.fakeServer.create()
+    fakeServer.create()
   })
 
   afterEach(() => {
-    server.restore()
-    server = null
+    fakeServer.restore()
   })
 
-  it('UserRequest#fetch - Promise を返却してチェーンできる', (done) => {
+  it('UserRequest#fetch - 正常 : Promise を返却してチェーンできる', (done) => {
     const request = new UserRequest
-    server.respondWith(
-      'GET',
-      'http://jsonplaceholder.typicode.com/users',
-      [
-        200,
-        { 'Content-Type': 'application/json' },
-        JSON.stringify({status: 1})
-      ]
-    )
+    fakeServer.ready(success)
     request.fetch()
       .then( res => {
+        // dump(res)
         assert.deepEqual(res, {status: 1})
         done()
       })
-    server.respond()
+    fakeServer.respond()
   })
 
+  it('UserRequest#fetch - 異常 : Promise を返却してチェーンできる', (done) => {
+    const request = new UserRequest
+    fakeServer.ready(failure)
+    request.fetch()
+      .fail( (xhr, text, err) => {
+        assert.equal(err, 'Not Found')
+        done()
+      })
+    fakeServer.respond()
+  })
 })
