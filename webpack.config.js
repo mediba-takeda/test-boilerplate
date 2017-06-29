@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
 const entries = require('./webpack.entries')
-const WebpackNotifierPlugin = require('webpack-notifier');
 
 const __DEV__  = process.env.NODE_ENV != 'production'
 const __TEST__ = process.env.NODE_ENV === 'test'
@@ -43,14 +42,17 @@ const webpackConfig = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    new webpack.optimize.UglifyJsPlugin({minimize: true}),
-    new WebpackNotifierPlugin()
-  ].concat(__TEST__ ? [
+  ]
+}
+
+__PRD__ &&
+  webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}))
+__TEST__ &&
+  webpackConfig.plugins.push(
     new webpack.ProvidePlugin({
       'jQuery': 'jquery',
       '$': 'jquery'
     })
-  ] : [])
-}
+  )
 
 module.exports = webpackConfig

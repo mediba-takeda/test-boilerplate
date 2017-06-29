@@ -3,9 +3,11 @@ import { fakeServer } from 'testUtility/fakeServer'
 
 describe('- UserRequest', () => {
   const success = {
+    url: 'http://jsonplaceholder.typicode.com/users',
     response: { status: 1 }
   }
   const failure = {
+    url: 'http://jsonplaceholder.typicode.com/users',
     status: 404
   }
 
@@ -22,11 +24,9 @@ describe('- UserRequest', () => {
     fakeServer.ready(success)
     request.fetch()
       .then( res => {
-        // dump(res)
         assert.deepEqual(res, {status: 1})
         done()
       })
-    fakeServer.respond()
   })
 
   it('UserRequest#fetch - 異常 : Promise を返却してチェーンできる', (done) => {
@@ -37,6 +37,5 @@ describe('- UserRequest', () => {
         assert.equal(err, 'Not Found')
         done()
       })
-    fakeServer.respond()
   })
 })
