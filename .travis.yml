@@ -6,8 +6,11 @@ addons:
       - google-chrome-stable
 language:
   - node_js
-nvm:
+  - ruby
+node_js:
   - 6.10.1
+ruby:
+  - 2.4.0
 git:
   depth: 1
 cache:
