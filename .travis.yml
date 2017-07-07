@@ -5,8 +5,8 @@ addons:
     packages:
       - google-chrome-stable
 language:
-  - node_js
   - ruby
+  - node_js
 node_js:
   - 6.10.1
 rvm:
