@@ -9,7 +9,7 @@ language:
   - ruby
 node_js:
   - 6.10.1
-ruby:
+rvm:
   - 2.4.0
 git:
   depth: 1
