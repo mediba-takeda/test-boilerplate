@@ -1,9 +1,7 @@
 dist: trusty
 sudo: false
 addons:
-  apt:
-    packages:
-      - google-chrome-stable
+  chrome: stable
 language:
   - node_js
 node_js:
@@ -11,7 +9,6 @@ node_js:
 git:
   depth: 1
 cache:
-  apt: true
   yarn: true
   directories: node_modules
 script:
