@@ -3,9 +3,6 @@ delete webpackConfig.entry
 delete webpackConfig.output
 
 const __WATCH__ = process.env.KARMA_WATCH
-if (process.env.TRAVIS) {
-  process.env.CHROME_BIN = require('puppeteer').executablePath()
-}
 
 module.exports = (config)=> {
   config.set({
