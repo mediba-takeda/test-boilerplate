@@ -1,12 +1,30 @@
 {
   "presets": [
-    "es2015"
+    ["env", {
+      "targets": {
+        "browsers": ["last 1 version"]
+      },
+      "useBuiltIns": true,
+      // "debug": true,
+      "modules": false,
+      "loose": true
+    }]
   ],
   "plugins": [
     "transform-runtime"
   ],
   "env": {
     "test": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "browsers": ["last 1 Chrome versions"]
+          },
+          "useBuiltIns": true,
+          "modules": false,
+          "loose": true
+        }]
+      ],
       "plugins": [
         "babel-plugin-istanbul",
         "babel-plugin-espower"

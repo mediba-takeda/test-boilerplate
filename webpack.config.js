@@ -46,7 +46,7 @@ const webpackConfig = {
 }
 
 __PRD__ &&
-  webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}))
+  webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({ sourceMap: true, minimize: true }))
 __TEST__ &&
   webpackConfig.plugins.push(
     new webpack.ProvidePlugin({
